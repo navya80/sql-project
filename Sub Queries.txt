@@ -1,0 +1,207 @@
+create database jfs3435sq;
+use jfs3435sq;
+CREATE TABLE employee (
+  eid INT,
+  fname VARCHAR(50),
+  lname VARCHAR(50),
+  salary DECIMAL(10,2),
+  department VARCHAR(50),
+  designation VARCHAR(50),
+  bonus DECIMAL(10,2) NULL,
+  hire_date DATE
+);
+
+INSERT INTO employee (eid, fname, lname, salary, department, designation, bonus, hire_date) VALUES
+(1, 'Amit', 'Sharma', 45000.00, 'Sales', 'Executive', 3000.00, '2020-01-15'),
+(2, 'Neha', 'Verma', 52000.00, 'HR', 'Manager', NULL, '2019-03-10'),
+(3, 'Ravi', 'Kumar', 39000.00, 'IT', 'Developer', 2000.00, '2021-06-20'),
+(4, 'Priya', 'Mehta', 47000.00, 'Finance', 'Analyst', NULL, '2020-07-12'),
+(5, 'Suresh', 'Nair', 55000.00, 'Sales', 'Manager', 5000.00, '2018-02-01'),
+(6, 'Anita', 'Joshi', 41000.00, 'IT', 'Tester', NULL, '2021-01-25'),
+(7, 'Karan', 'Reddy', 60000.00, 'Marketing', 'Lead', 4500.00, '2019-11-11'),
+(8, 'Divya', 'Gupta', 37000.00, 'HR', 'Executive', NULL, '2022-04-14'),
+(9, 'Rohit', 'Singh', 49000.00, 'Sales', 'Executive', 3500.00, '2020-09-09'),
+(10, 'Meena', 'Yadav', 42000.00, 'Finance', 'Clerk', NULL, '2021-05-05'),
+
+(11, 'Sunil', 'Bansal', 62000.00, 'IT', 'Architect', 8000.00, '2017-12-20'),
+(12, 'Pooja', 'Kapoor', 36000.00, 'HR', 'Clerk', NULL, '2023-01-01'),
+(13, 'Manish', 'Agarwal', 46000.00, 'Sales', 'Executive', NULL, '2021-03-17'),
+(14, 'Swati', 'Rao', 51000.00, 'IT', 'Developer', 2500.00, '2019-08-25'),
+(15, 'Arjun', 'Desai', 47000.00, 'Finance', 'Analyst', 4000.00, '2020-06-30'),
+(16, 'Nikita', 'Jain', 43000.00, 'Marketing', 'Executive', NULL, '2021-10-13'),
+(17, 'Vinay', 'Mishra', 39000.00, 'Sales', 'Executive', 1000.00, '2022-03-03'),
+(18, 'Sneha', 'Malhotra', 52000.00, 'HR', 'Manager', 3000.00, '2020-11-22'),
+(19, 'Raj', 'Thakur', 57000.00, 'IT', 'Team Lead', NULL, '2018-05-15'),
+(20, 'Rekha', 'Patel', 44000.00, 'Finance', 'Executive', NULL, '2022-02-07'),
+
+(21, 'Deepak', 'Kumar', 39000.00, 'Marketing', 'Executive', 2500.00, '2021-08-19'),
+(22, 'Lavanya', 'Saxena', 42000.00, 'HR', 'Analyst', NULL, '2022-06-06'),
+(23, 'Naveen', 'Chopra', 55000.00, 'IT', 'Developer', 3000.00, '2020-10-10'),
+(24, 'Isha', 'Bhatt', 47000.00, 'Finance', 'Clerk', NULL, '2021-07-07'),
+(25, 'Ankit', 'Kohli', 58000.00, 'Sales', 'Manager', 6000.00, '2019-12-12'),
+(26, 'Seema', 'Rana', 43000.00, 'Marketing', 'Executive', NULL, '2023-04-04'),
+(27, 'Rahul', 'Verma', 61000.00, 'IT', 'Architect', 7500.00, '2018-03-21'),
+(28, 'Kavita', 'Gill', 39000.00, 'HR', 'Clerk', NULL, '2023-02-02'),
+(29, 'Mohit', 'Dwivedi', 46000.00, 'Sales', 'Executive', 2800.00, '2020-08-08'),
+(30, 'Payal', 'Kashyap', 40000.00, 'Finance', 'Analyst', NULL, '2021-12-12'),
+
+(31, 'Umesh', 'Sahu', 37000.00, 'Sales', 'Clerk', 1000.00, '2021-09-09'),
+(32, 'Preeti', 'Deshmukh', 49000.00, 'IT', 'Developer', NULL, '2022-11-11'),
+(33, 'Ajay', 'Bhatia', 61000.00, 'HR', 'Manager', 4500.00, '2019-05-05'),
+(34, 'Jyoti', 'Rawat', 39000.00, 'Marketing', 'Analyst', NULL, '2020-10-01'),
+(35, 'Siddharth', 'Rana', 42000.00, 'Finance', 'Clerk', NULL, '2021-04-04'),
+(36, 'Kriti', 'Sen', 48000.00, 'IT', 'Tester', 2100.00, '2022-01-01'),
+(37, 'Gaurav', 'Mali', 59000.00, 'Sales', 'Lead', 5000.00, '2020-03-03'),
+(38, 'Tina', 'Roy', 43000.00, 'HR', 'Executive', NULL, '2021-06-06'),
+(39, 'Harsh', 'Chauhan', 57000.00, 'Marketing', 'Manager', 4000.00, '2019-07-07'),
+(40, 'Anshika', 'Meena', 41000.00, 'Finance', 'Executive', NULL, '2023-05-05'),
+
+(41, 'Kabir', 'Bajpai', 72000.00, 'IT', 'Lead', 7000.00, '2018-06-06'),
+(42, 'Sonal', 'Shetty', 35000.00, 'Sales', 'Clerk', NULL, '2023-06-06'),
+(43, 'Lokesh', 'Pillai', 47000.00, 'HR', 'Analyst', 2200.00, '2020-02-02'),
+(44, 'Maya', 'Pathak', 39000.00, 'Marketing', 'Executive', NULL, '2022-07-07'),
+(45, 'Dheeraj', 'Singla', 51000.00, 'Finance', 'Lead', 4500.00, '2019-09-09'),
+(46, 'Ritika', 'Pandey', 42000.00, 'Sales', 'Executive', NULL, '2021-08-08'),
+(47, 'Ramesh', 'Tiwari', 53000.00, 'IT', 'Architect', 6000.00, '2017-10-10'),
+(48, 'Snehal', 'Dixit', 40000.00, 'HR', 'Clerk', NULL, '2023-03-03'),
+(49, 'Zoya', 'Ali', 46000.00, 'Marketing', 'Analyst', NULL, '2021-02-02'),
+(50, 'Kishore', 'Jadhav', 58000.00, 'Finance', 'Manager', 5500.00, '2020-12-12');
+
+
+Single Row sub queries:
+1. Write an SQL query to display the details of the employee(s) who earn the highest salary in the employee table.
+select * from employee where salary =(select max(salary) from employee); 
+
+
+2. Write an SQL query to display the details of the employee(s) who earn the lowest salary in the employee table.
+select * from employee where salary =(select min(salary) from employee);
+
+
+3. Write an SQL query to display the details of the most recently hired employee(s) from the employee table.
+select * from employee where hire_date =(select max(hire_date) from employee);
+
+4. Write an SQL query to retrieve the record(s) of the employee(s) with the earliest hire date from the employee table.
+select * from employee where hire_date =(select min(hire_date) from employee);
+
+
+5. Write an SQL query to retrieve the record(s) of the employee(s) who received the highest bonus from the employee table.
+select * from employee where bonus =(select max(bonus) from employee);
+
+6. Write an SQL query to retrieve the details of the Manager(s) with the highest salary from the employee table.
+
+select * from employee where designation ='manager'and salary =(select max(salary) from employee where designation ='manager');
+
+7. Write an SQL query to retrieve the details of the Executive(s) with the highest salary from the employee table.
+select * from employee where designation ='executive' and salary =(select max(salary) from employee where designation ='executive');
+
+
+8. Write an SQL query to retrieve the details of the Developer(s) with the highest salary from the employee table.
+select * from employee where designation ='developer' and salary =(select max(salary) from employee where designation ='developer');
+
+9. Write an SQL query to retrieve the details of the Tester(s) with the highest salary from the employee table.
+select * from employee where designation ='tester' and salary =(select max(salary) from employee where designation ='tester');
+
+10. Write an SQL query to retrieve the details of the Clerk(s) with the highest salary from the `employee` table.
+select * from employee where designation ='clerk' and salary =(select max(salary) from employee where designation ='clerk');
+ 
+11. Write an SQL query to retrieve the record(s) of the employee(s) who received the lowest bonus from the `employee` table.
+
+select * from employee where bonus =(select min(bonus) from employee);
+12. Write an SQL query to retrieve the record(s) of the employee(s) with the designation 'Manager' who have the minimum  among all managers in the employee table.
+select * from employee where designation ='manager' and salary =(select(min(salary) from employee where designation ='manager');
+
+13. Write an SQL query to retrieve the record(s) of the employee(s) with the designation 'Executive' who have the minimum salary among all Executives in the `employee` table.
+
+14. Write an SQL query to retrieve the record(s) of the employee(s) with the designation 'Developer' who have the minimum salary among all Developers in the `employee` table.
+
+select * from employee where designation ='developer' and salary =(select min(salary) from employee where designation ='developer');
+15. Write an SQL query to retrieve the record(s) of the employee(s) with the designation 'Tester' who have the minimum salary among all Testers in the `employee` table.
+select * from employee where designation ='tester' and salary =(select min(salary) from employee where designation ='tester');
+
+
+16. Write an SQL query to retrieve the record(s) of the employee(s) with the designation 'Clerk' who have the maximum salary among all Clerks in the `employee` table.
+select * from employee where designation ='clerk' and salary =(select min(salary) from employee where designation ='clerk');
+
+
+
+17. Write SQL queries to retrieve the record(s) of the employee(s) with the highest salary in each of the following departments:
+* IT
+* Sales
+* HR
+* Finance
+* Marketing
+select * from employee where department ='IT' AND salary =(select max(salary) from  employee where department ='IT');
+select * from employee where department ='sales' AND salary =(select max(salary) from  employee where department ='sales');
+select * from employee where department ='hr' AND salary =(select max(salary) from  employee where department ='hr');
+
+select * from employee where department ='finance' AND salary =(select max(salary) from  employee where department ='finance');
+
+select * from employee where department ='marketing' AND salary =(select max(salary) from  employee where department ='marketing');
+
+
+
+
+
+18. Write SQL queries to retrieve the record(s) of the employee(s) with the lowest salary in each of the following departments:
+* IT
+* Sales
+* HR
+* Finance
+* Marketing
+select * from employee where department ='finance' AND salary =(select min(salary) from  employee where department ='finance');
+select * from employee where department ='hr' AND salary =(select min(salary) from  employee where department ='hr');
+select * from employee where department ='sales' AND salary =(select min(salary) from  employee where department ='sales');
+select * from employee where department ='it' AND salary =(select min(salary) from  employee where department ='it');
+select * from employee where department ='marketing' AND salary =(select min(salary) from  employee where department ='marketing');
+
+
+
+
+
+
+
+
+19. Write SQL queries to retrieve the record(s) of the employee(s) with the highest bonus in each of the following departments:
+* IT
+* Sales
+* HR
+* Finance
+* Marketing
+select * from employee where department ='it' AND bonus =(select max(bonus) from  employee where department ='it');
+select * from employee where department ='marketing' AND bonus =(select max(bonus) from  employee where department ='marketing');
+select * from employee where department ='finance' AND bonus =(select max(bonus) from  employee where department ='finance');
+select * from employee where department ='it' AND bonus=(select max(bonus) from  employee where department ='it');
+select * from employee where department ='sales' AND bonus =(select max(bonus) from  employee where department ='sales');
+
+
+
+20. Write SQL queries to retrieve the record(s) of the employee(s) with the lowest bonus in each of the following departments:
+* IT
+* Sales
+* HR
+* Finance
+* Marketing
+select * from employee where department ='it' AND bonus =(select min(bonus) from  employee where department ='it');
+select * from employee where department ='marketing' AND bonus =(select min(bonus) from  employee where department ='marketing');
+select * from employee where department ='finance' AND bonus =(select min(bonus) from  employee where department ='finance');
+select * from employee where department ='it' AND bonus=(select min(bonus) from  employee where department ='it');
+select * from employee where department ='sales' AND bonus =(select min(bonus) from  employee where department ='sales');
+
+
+
+21. Write an SQL query to retrieve the details of employee(s) whose salary is greater than the average salary of all employees in the employee table;
+select * from employee where salary >(select avg(salary) from employee);
+
+22. Write an SQL query to retrieve the details of employee(s) whose salary is less than the average salary of all employees in the `employee` table.
+
+
+select * from employee where salary <(select avg(salary) from employee);
+
+
+
+
+
+
+
+
+

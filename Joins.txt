@@ -1,0 +1,112 @@
+create database jfs3435joins; 
+
+use jfs3435joins;
+
+
+CREATE TABLE student (
+    student_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) not null
+);
+
+
+CREATE TABLE mess (
+    mess_id INT PRIMARY KEY AUTO_INCREMENT,
+    mess_type ENUM('Hostel','Day scholar') NOT NULL,
+    student_id INT UNIQUE,
+    FOREIGN KEY (student_id) REFERENCES student(student_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+
+
+CREATE TABLE sports (
+    sports_id INT PRIMARY KEY AUTO_INCREMENT,
+    sports_type SET('Cricket','Tennis') NOT NULL,
+    student_id INT UNIQUE,
+    FOREIGN KEY (student_id) REFERENCES student(student_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+
+
+insert into student values(111, 'Anand');
+
+insert into student(name) values('vignesh'),('Teja'),('Mohan'),('Karthik'),('shanmukh');
+
+
+insert into mess values(1111, 'Hostel', 111);
+insert into mess values(1112, 'Hostel', 113);
+insert into mess values(1113, 'Hostel', 112);
+insert into mess values(1114, 'Hostel', 115);
+
+insert into sports values(11111, 'Cricket', 114);
+insert into sports values(11112, 'Tennis', 116);
+insert into sports values(11113, ('Cricket,Tennis'), 112);
+insert into sports values(11114, ('Cricket,Tennis'), 115);
+
+Inner join:
+select * from mess join sports on mess.student_id =sports.student_id;
+select * from mess m join sports s on m.student_id =s.student_id;
+select * from mess as m join sports as s on m.student_id =s.student_id;
+Equi join:
+select * from mess m, sports s where m.student_id = s.student_id;
+
+
+Natural join: select * from mess natural join sports;
+
+
+Left join:
+select * from mess Left join sports on mess.student_id =sports.student_id;
+select * from mess as m left join sports as s on m.student_id =s.student_id;
+
+
+Right join:
+select * from mess right join sports on mess.student_id = sports.student_id;
+
+
+
+Full Join:
+select * from mess left join sports on mess.student_id = sports.student_id where sports.student_id is null;
+
+
+Left Exclusive Join:
+select * from mess left join sports on mess.student_id = sports.student_id where sports.student_id is null;
+
+Right Exclusive Join:
+select * from mess right join sports  on mess.student_id =sports.student_id where  mess.student_id is null;
+
+
+Full Exclusive Join:
+select * from mess left join sports on mess.student_id = sports.student_id where mess.student_id ;
+
+
+Example Cross JOIN:
+select * from mess cross join sports;
+
+
+Self Join:
+create table trainer(id int primary key, name varchar(100) not null, manager_id int);
+
+insert into trainer(id, name) values(101, 'Sai Ram');
+insert into trainer(id, name) values(102, 'Saketh');
+insert into trainer values(103, 'Kishore', 101);
+insert into trainer values(104, 'Anand', 103), (105, 'Lavanya', 103);
+insert into trainer values(106, 'Ambika', 103), (107, 'Pooja', 102);
+
+
+Self Join:
+select * from trainer as a  join trainer as b on a.manager_id =b.id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

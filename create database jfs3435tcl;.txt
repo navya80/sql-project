@@ -1,0 +1,29 @@
+create database jfs3435tcl;
+use jfs3435tcl;
+show variables like 'autocommit';
+set autocommit=0;
+table creation:
+create table account( id int primary key auto_increment, name varchar(250) not null, balance decimal(10,2) default 0.0);
+
+inserting the values:
+insert into account values(111,'rcbanand', 48000.00);
+commit;
+insert into account(name) values('rcb bashi');
+rollback;
+insert into account(name) values('csk bashi');
+commit;
+insert into account(name) values('csk gowri');
+insert into account(name) values('rcb divya');
+update account set balance =-75000 where id =113;
+rollback;
+update account set balance =75000 where id =113;
+commit;
+save point
+start transaction;
+savepoint s1;
+update account set balance =25000 where id=111;
+update account set balance =20000 where id=115;
+savepoint s2;
+update account set balance =45000 where id =113;
+update account set balance =40000 where id =114;
+rollback to s2;

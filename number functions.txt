@@ -1,0 +1,53 @@
+number functions:
+select mod(10,2);
+select mod(100,21);
+select mod(17,9);
+select mod(10,3);
+select pow(10,3);
+select pow(5,4);
+select sqrt(144);
+select sqrt(2);
+select abs(-90);
+select floor(4.95);
+select floor(3.75);
+select ceil(3.67);
+select ceil(9.876);
+select round(123.897,2);
+select round(1234.9874,3);
+String functions:
+select length('navya devarakonda');
+select character_length('navya devarakonda');
+select upper('navya');
+select lower('navya');
+select trim('    navya   ');
+select length(trim('     navya    '));
+select length('       navya  ');
+select substring('navya devarakonda',5,6);
+select replace('navya devarakonda', 'navya', 'mounika');
+select concat('navya','devarakonda');
+select reverse('navya');
+select concat_ws(':', 'navya','mounika');
+select ascii('A');
+select ascii('a');
+DATE FUNCTION:
+select now();
+select curdate();
+select sysdate();
+select curtime();
+extracting parts of date/time:
+select year(now());
+select month(now());
+select day(now());
+select hour(now());
+select minute(now());
+select second(now());
+select dayofweek(now());
+select dayname(now());
+select date_add(now(), interval 25 day);
+select date_add(now(), interval 25 month);
+select date_add(now(), interval 25 year);
+select date_sub(now(), interval 25 day);
+select date_sub(now(), interval 25 month);
+select date_sub(now(), interval 25 year);
+select datediff('23-08-2025', '29-09-2025');
+select datediff('23-08-2025', '29-09-2025');

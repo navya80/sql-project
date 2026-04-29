@@ -1,0 +1,100 @@
+1. Write a query to retrieve the number of employees grouped by each department from the employee table?
+Answer:select count(*) from employee group by department;
+select department,count(*) from employee group by department;
+
+
+2. Write a query to display the number of employees in each department, but only include those departments that have more than 10 employees.
+Answer:
+select department,count(*) as employee_count from employee  group by department having employee_count>10;
+
+3. Write a query to display the number of employees in each department, but only include those departments that have 10 or fewer employees.
+Answer:select department,count(*) from employee  group by department having count(*) <=10;
+
+
+4. Write a query to display the number of employees who did not receive a bonus, grouped by department.
+Answer: select department,count(*) from employee where bonus is null group by department;
+
+
+5. write a query to count of all employees whose bonus is not null and group them department wise?
+Answer:select department,count(*) from employee where bonus is not null group by department;
+
+
+6. Write a query to display the number of employees with no bonus, grouped by department, and sorted in ascending order of department names.
+Answer:
+select department,count(*) from employee where bonus is null group by department order by department asc;
+
+7. Write a query to display the number of employees with no bonus, grouped by department, and sorted in descending order of department names.
+Answer : select department, count(*) from employee where bonus is null group by department
+order by department desc;
+
+8. Write a query to display the number of employees who received a bonus, grouped by department, and sorted in ascending order of department names.
+Answer:  select department,count(*) from employee where bonus is not null group by department order by department asc;
+
+9. Write a query to display the number of employees who received a bonus, grouped by department, and sorted in descending order of department names.
+Answer: select department ,count(*) from employee where bonus is not null group by department order by department desc;
+
+10. Write a query to display the total salary paid to employees in each department.
+Answer : 
+select department,sum(salary) from employee group by department;
+
+11. Write a query to display the total salary paid to each department, but only include those departments where the total salary is greater than or equal to 500000.00.
+Answer : select department,sum(salary) as total_salary from employee group by department having total_salary >=500000;
+
+12. Write a query to display the total salary paid to each department, but only include those departments where the total salary is less than 500000.00.
+Answer : 
+select department,sum(salary) as total_salary from employee group by department having total_salary <500000;
+
+13. Write a query to display the total salary paid to each department, sorted in ascending order of department names.
+
+Answer : select department,sum(salary) as total_salary from employee group by department order by department;
+
+14. Write a query to display the total salary paid to each department, sorted in descending order of department names.
+Answer :  select department,sum(salary)  as total_Salary from employee group by department 
+order by department desc;
+15. Write a query to display the total salary paid to each department, but only include departments where the total salary is greater than or equal to 500000. Sort the result in ascending order of department names.
+Answer : select department,sum(salary) as total_salary from employee group by department order by total_salary desc;
+
+16. Write a query to display the total salary paid to each department, but only include departments where the total salary is greater than or equal to 500000. Sort the result in descending order of department names.
+Answer : select  department ,sum(salary) as total_salary from employee group by department having total_Salary >=500000.00 order by  department asc;
+16 : select  department ,sum(salary) as total_salary from employee group by department having total_Salary <=500000.00 order by  department asc;
+
+
+17. Write a query to display the total salary paid to each department, but only include departments where the total salary is less than 500000. Sort the result in ascending order of department names.
+Answer :  select department,sum(Salary)  as total_salary from employee group by department having total_Salary <500000 order by department;
+
+18. Write a query to display the total salary paid to each department, but only include departments where the total salary is less than 500000. Sort the result in descending order of department names.
+Answer : select department,sum(Salary) as total_Salary from  employee group by department having total_salary >500000 order by total_Salary asc;
+
+19. Write a query to display the average salary of employees in each department.
+Answer :  select department, avg(salary) as avg_salary from employee group by department;
+
+20. Write a query to display the average salary of each department, but only include departments where the average salary is greater than or equal to 50,000.
+Answer : select department,avg(salary) as avg_Salary from employee group by department having avg_Salary >= 50000 order by department;
+
+21. Write a query to display the average salary of each department, but only include departments where the average salary is less than 50,000.
+Answer : select department,avg(salary) as avg_Salary from employee group by department having avg_Salary < 50000 order by department;
+
+22. Write a query to display the average salary of each department, but only include departments where the average salary is less than 50,000. Sort the result in ascending order of department names.
+
+Answer : select department,avg(salary) as avg_Salary from employee group by department having avg_Salary <50000 order by department asc;
+
+23. Write a query to display the average salary of each department, but only include departments where the average salary is less than 50,000. Sort the result in descending order of department names.
+Answer: select department,avg(salary) as avg_Salary from employee group by department having avg_salary <50000 order by department desc;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

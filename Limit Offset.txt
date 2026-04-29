@@ -1,0 +1,137 @@
+CREATE DATABASE limitoff;
+USE limitoff;
+
+CREATE TABLE employee (
+  Id INT PRIMARY KEY,
+  Name VARCHAR(45) NOT NULL,
+  Department VARCHAR(45) NOT NULL,
+  Salary FLOAT NOT NULL,
+  Gender VARCHAR(45) NOT NULL,
+  Age INT NOT NULL,
+  City VARCHAR(45) NOT NULL
+);
+
+INSERT INTO employee VALUES (1, 'Rachel', 'IT', 149171.06, 'Female', 44, 'Hyderabad');
+INSERT INTO employee VALUES (2, 'Victor', 'Finance', 188895.71, 'Female', 53, 'Hyderabad');
+INSERT INTO employee VALUES (3, 'Grace', 'Finance', 55063.99, 'Female', 28, 'Delhi');
+INSERT INTO employee VALUES (4, 'Hannah', 'HR', 176764.89, 'Male', 31, 'Hyderabad');
+INSERT INTO employee VALUES (5, 'Frank', 'Marketing', 25698.5, 'Male', 37, 'Delhi');
+INSERT INTO employee VALUES (6, 'Nate', 'Finance', 181282.0, 'Female', 33, 'Bangalore');
+INSERT INTO employee VALUES (7, 'Uma', 'Finance', 184890.14, 'Female', 37, 'Delhi');
+INSERT INTO employee VALUES (8, 'Karen', 'Marketing', 189872.44, 'Female', 41, 'Chennai');
+INSERT INTO employee VALUES (9, 'Bob', 'IT', 59331.57, 'Male', 51, 'Kolkata');
+INSERT INTO employee VALUES (10, 'Victor', 'Sales', 100447.23, 'Male', 25, 'Chennai');
+INSERT INTO employee VALUES (11, 'Paul', 'Sales', 115099.67, 'Female', 56, 'Delhi');
+INSERT INTO employee VALUES (12, 'Uma', 'Finance', 156753.76, 'Female', 58, 'Chennai');
+INSERT INTO employee VALUES (13, 'Leo', 'Marketing', 169735.4, 'Male', 47, 'Delhi');
+INSERT INTO employee VALUES (14, 'Leo', 'Sales', 168739.23, 'Male', 41, 'Chennai');
+INSERT INTO employee VALUES (15, 'Mona', 'Marketing', 140858.29, 'Male', 45, 'Delhi');
+INSERT INTO employee VALUES (16, 'Yara', 'Marketing', 178264.6, 'Female', 26, 'Hyderabad');
+INSERT INTO employee VALUES (17, 'Paul', 'HR', 179228.23, 'Female', 53, 'Chennai');
+INSERT INTO employee VALUES (18, 'Sam', 'Finance', 156289.36, 'Male', 59, 'Kolkata');
+INSERT INTO employee VALUES (19, 'Nate', 'Marketing', 166699.19, 'Male', 30, 'Delhi');
+INSERT INTO employee VALUES (20, 'Hannah', 'Marketing', 139576.79, 'Female', 45, 'Chennai');
+INSERT INTO employee VALUES (21, 'Bob', 'Marketing', 170325.86, 'Female', 39, 'Kolkata');
+INSERT INTO employee VALUES (22, 'Mona', 'Sales', 108473.15, 'Male', 39, 'Delhi');
+INSERT INTO employee VALUES (23, 'Uma', 'Finance', 199167.37, 'Male', 48, 'Bangalore');
+INSERT INTO employee VALUES (24, 'Xavier', 'IT', 148398.88, 'Female', 45, 'Mumbai');
+INSERT INTO employee VALUES (25, 'Mona', 'Sales', 102573.3, 'Female', 47, 'Mumbai');
+INSERT INTO employee VALUES (26, 'Grace', 'Finance', 146859.62, 'Female', 38, 'Delhi');
+INSERT INTO employee VALUES (27, 'Nate', 'Finance', 140582.24, 'Male', 39, 'Mumbai');
+INSERT INTO employee VALUES (28, 'Yara', 'HR', 101178.63, 'Male', 29, 'Chennai');
+INSERT INTO employee VALUES (29, 'Karen', 'Finance', 192104.47, 'Male', 60, 'Bangalore');
+INSERT INTO employee VALUES (30, 'Uma', 'Marketing', 80938.91, 'Female', 52, 'Kolkata');
+INSERT INTO employee VALUES (31, 'Karen', 'HR', 108774.66, 'Male', 42, 'Bangalore');
+INSERT INTO employee VALUES (32, 'Paul', 'Finance', 174334.88, 'Female', 54, 'Bangalore');
+INSERT INTO employee VALUES (33, 'Charlie', 'Sales', 190653.61, 'Male', 38, 'Mumbai');
+INSERT INTO employee VALUES (34, 'Paul', 'Finance', 129298.15, 'Female', 60, 'Bangalore');
+INSERT INTO employee VALUES (35, 'Leo', 'HR', 119149.11, 'Male', 60, 'Kolkata');
+INSERT INTO employee VALUES (36, 'Uma', 'Finance', 74066.76, 'Male', 27, 'Bangalore');
+INSERT INTO employee VALUES (37, 'Zane', 'Sales', 84787.21, 'Male', 30, 'Chennai');
+INSERT INTO employee VALUES (38, 'Bob', 'HR', 157014.78, 'Female', 59, 'Hyderabad');
+INSERT INTO employee VALUES (39, 'Tina', 'Marketing', 176848.66, 'Male', 59, 'Hyderabad');
+INSERT INTO employee VALUES (40, 'Grace', 'Sales', 195340.62, 'Male', 55, 'Bangalore');
+INSERT INTO employee VALUES (41, 'Nate', 'Sales', 131409.13, 'Male', 45, 'Mumbai');
+INSERT INTO employee VALUES (42, 'Karen', 'Sales', 144193.64, 'Female', 42, 'Chennai');
+INSERT INTO employee VALUES (43, 'Karen', 'Marketing', 105947.36, 'Male', 31, 'Mumbai');
+INSERT INTO employee VALUES (44, 'Tina', 'Finance', 147939.94, 'Male', 57, 'Delhi');
+INSERT INTO employee VALUES (45, 'Karen', 'Finance', 183041.98, 'Female', 44, 'Mumbai');
+INSERT INTO employee VALUES (46, 'Karen', 'Finance', 163456.83, 'Male', 47, 'Hyderabad');
+INSERT INTO employee VALUES (47, 'Victor', 'Sales', 170109.48, 'Female', 36, 'Delhi');
+INSERT INTO employee VALUES (48, 'Victor', 'HR', 126290.86, 'Female', 30, 'Mumbai');
+INSERT INTO employee VALUES (49, 'Leo', 'Sales', 163976.19, 'Female', 59, 'Bangalore');
+INSERT INTO employee VALUES (50, 'Uma', 'HR', 90430.95, 'Male', 49, 'Delhi');
+INSERT INTO employee VALUES (51, 'Charlie', 'Finance', 192639.17, 'Male', 26, 'Kolkata');
+INSERT INTO employee VALUES (52, 'Olivia', 'Finance', 176521.14, 'Male', 33, 'Mumbai');
+INSERT INTO employee VALUES (53, 'Karen', 'IT', 172318.6, 'Female', 60, 'Mumbai');
+INSERT INTO employee VALUES (54, 'Frank', 'Marketing', 109167.4, 'Female', 26, 'Mumbai');
+INSERT INTO employee VALUES (55, 'Karen', 'Finance', 130653.01, 'Male', 30, 'Kolkata');
+INSERT INTO employee VALUES (56, 'Grace', 'IT', 154601.82, 'Female', 28, 'Mumbai');
+INSERT INTO employee VALUES (57, 'Rachel', 'Sales', 148008.2, 'Female', 26, 'Hyderabad');
+INSERT INTO employee VALUES (58, 'Victor', 'Marketing', 159927.7, 'Male', 42, 'Bangalore');
+INSERT INTO employee VALUES (59, 'Paul', 'Marketing', 186858.8, 'Female', 59, 'Kolkata');
+INSERT INTO employee VALUES (60, 'Frank', 'HR', 77127.32, 'Male', 37, 'Mumbai');
+
+1. Write an SQL query to retrieve the top 5 highest-paid employees from the employee table.
+Answer: select name ,salary from employee order by salary desc limit 5;
+
+2. Write an SQL query to retrieve the details of the 5 lowest-paid employees from the employee table.
+Answer: select name,salary from employee order by salary asc limit 5; 
+
+3. Write an SQL query to find the highest-paid employee from the city of 'Hyderabad'.
+Answer: select name,salary from employee where city ='hyderabad' order by salary desc limit 1; 
+
+4. Write an SQL query to find the lowest-paid employee from the city of 'Chennai'.
+Answer : 
+select name,salary from employee where city ='chennai' order by salary limit 1;
+5. Write an SQL query to retrieve the details of the highest-paid male employee from the employee table.
+Answer : select  name,salary from employee where gender='male' order by salary desc limit 1;
+
+6. Write an SQL query to retrieve the details of the lowset-paid male employee from the employee table.
+Answer : select name,salary from employee where gender='male' order by salary limit 1;
+
+7. Write an SQL query to retrieve the details of the highest-paid female employee from the employee table.
+Answer : select name,salary from employee where gender='female' order by salary desc limit 1;
+
+8. Write an SQL query to retrieve the details of the lowset-paid female employee from the employee table.
+Answer : select name,salary from employee where gender='female' order by salary limit 1;
+
+9.Write a query to display the details of the highest-paid male employee from Hyderabad.
+Answer: select name,salary from employee where gender='male' and city ='hyderabad' order by salary desc limit 1;
+
+10.Write a query to display the details of the highest-paid female employee from Hyderabad.
+Answer: 
+select name,salary from employee where gender='female' and city ='hyderabad' order by salary desc limit 1;
+11.Write a query to display the details of the lowest-paid male employee from Hyderabad.
+Answer: select name,salary from employee where gender='male' and city ='hyderabad' order by salary  limit 1;
+
+12.Write a query to display the details of the lowest-paid female employee from Hyderabad.
+Answer: select name,salary from employee where gender='female' and city ='hyderabad' order by salary  limit 1;
+
+13. Write a query to display employee records 10 at a time using pagination logic, without any specific order. Use the LIMIT and OFFSET clauses to fetch each page of records.
+Answer: select * from employee limit 10 offset 0;
+select * from employee limit 10 offset 10;
+select * from employee limit 10 offset 20;
+select * from employee limit 10 offset 30;
+select * from employee limit 10 offset 40;
+
+
+
+14. Write a query to display employee records in increasing order of salary, 10 records at a time, using pagination logic.
+Answer:
+select * from employee order by salary limit 10 offset 0;
+
+15. Write a query to display employee records in descending order of salary, 10 records at a time, using pagination logic.
+select * from employee order by salary desc limit 10 offset 0;
+    		
+
+
+
+
+
+
+
+
+
+
+

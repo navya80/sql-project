@@ -1,0 +1,39 @@
+create database fk;
+use  fk;
+create table department(
+id int primary key auto_increment,
+name varchar(100) not null);
+create table trainer(
+id int primary key auto_increment,
+name varchar(100) not null,
+dept_id int, foreign key(dept_id) references department(id) ON DELETE CASCADE ON UPDATE CASCADE);
+insert into department values(111,'Java');
+insert into department (name) values('python'),('Aptitude'),('Soft Skills');
+insert into trainer(id, name) values(1111,'Anand');
+insert into trainer (name) values('moghali'), ('neha'), ('monika'),('hari hara'), ('bashi'),('vignesh'),('bhagyamma');
+update trainer set dept_id =111 where id=1111;
+update trainer set dept_id =113 where id =1112;
+update trainer set dept_id =113 where id=1113;
+update trainer set dept_id =114 where id=1114;
+update trainer set dept_id =112 where id =1115;
+update trainer set dept_id =112 where id =1116;
+update trainer set dept_id = 111 where id =1117;
+update trainer set dept_id =113 where id =1118;
+update trainer set dept_id =114 where id =1118;
+this query executed successfully
+update department set id =514 where id =114;
+this query is executed successfully  and 114 updates to 514 because id 114 from department table is not mapped with any child row in trainer table
+delete from department where id =514;
+this query is executed successfully and 514 deleted because id 514 from department table is not mapped with any child row in trainer table;
+update department set id = 513 where id =113;
+this is query not executed because id 113 from department table is mapped with child rows in trainer table.
+delete from department where id =113;
+this quey is not executed because 113 from department table is mapped with cjild rows in trainer table.
+
+
+
+
+
+
+
+

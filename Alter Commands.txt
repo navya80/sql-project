@@ -1,0 +1,40 @@
+Add a column at the end of the table.
+Answer : 
+
+Add multiple column at the end of the table.
+Answer : 
+
+Add a column at specific position of the table.
+Answer : 
+
+Add a column at first position of the table.
+Answer: 
+
+Change position of a column in the table.
+Answer : 
+
+Rename column name in the table. 
+Answer : 
+
+Add primary key.
+Answer : 
+
+Modify constraints of the columns.
+Answer: 
+
+
+Set default values.
+Answer: 
+
+Drop default values.
+
+
+Rename table:
+
+
+
+
+
+
+
+ 

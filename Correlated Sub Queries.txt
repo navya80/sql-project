@@ -1,0 +1,42 @@
+1. Write an SQL query to retrieve the details of employees who have the highest salary within their respective designations, and display the results ordered by designation.
+select * from employee e1 where salary =(select(max(salary)) from employee e2  where e1.designation =e2.designation) order by designation;
+
+2. Write an SQL query to retrieve the details of employees who have the lowest salary within their respective designations, and display the results ordered by designation.
+select * from employee e1 where salary =(select min(salary) from employee e2 where e1.designation =e2.designation) order by designation;
+
+
+3. Write an SQL query to retrieve the details of employees who have the highest salary within their respective departments, and display the results ordered by department.
+
+select * from employee e1 where salary =(select max(salary) from employee e2 where e1.department = e2.department) order by department;
+select distinct department from employee;
+
+4. Write an SQL query to retrieve the details of employees who have the lowest salary within their respective departments, and display the results ordered by department.
+
+select * from employee e1 where salary =(select min(salary) from employee e2 where e1.department = e2.department) order by department;
+
+5. Write an SQL query to retrieve the details of employees who have received the highest bonus within their respective departments, and display the results ordered by department.
+select * from employee e1 where bonus =(Select max(bonus) from employee e2 where e1.department = e2.department) order by department;
+
+
+6. Write an SQL query to retrieve the details of employees who have received the lowest bonus within their respective departments, and display the results ordered by department.
+
+select * from employee e1 where bonus =(select min(bonus) from employee e2 where e1.department =e2.department) order by department;
+
+7. Write an SQL query to retrieve the details of employees whose salary is greater than the average salary of their respective departments, and display the results ordered by department. 
+select * from employee e1 where salary > (select avg(salary) from employee e2 where e1.department =e2.department) order by department; 
+
+8. Write an SQL query to retrieve the details of employees whose salary is less than the average salary of their respective departments, and display the results ordered by department.
+select * from employee e1 where salary < (select avg(salary) from employee e2 where e1.department =e2.department) order by department; 
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+1. Write an SQL query to retrieve the details of all employees who belong to departments that have at least one employee earning a salary greater than 60,000.00. 
+
+
+
+2. Write an SQL query to retrieve the details of all employees whose salary matches any salary of employees in the 'HR' department.
+
+
+3. Write an SQL query to retrieve the details of employees whose hire date matches the hire date of any employee from the 'Sales' department.
+
+
+4. Write an SQL query to retrieve the details of employees whose designation is the same as any designation found in the 'Marketing' department. 
+
+
+5. Write an SQL query to retrieve the details of employees whose salary is greater than at least one employee's salary in the 'HR' department.
+
+
+6. Write an SQL query to retrieve the details of employees whose salary is greater than the salary of every employee in the 'Finance' department.
+
+
+
+7. Write an SQL query to retrieve the details of employees whose hire date matches the hire date of any employee with the designation 'Manager'.
+
+
+8. Write an SQL query to retrieve the details of employees whose salary is equal to any salary received by employees in the 'IT' department.
+

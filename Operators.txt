@@ -1,0 +1,318 @@
+ create database if not exists jfs3435ops;
+use jfs3435ops;
+CREATE TABLE employee (
+  eid INT,
+  fname VARCHAR(50),
+  lname VARCHAR(50),
+  salary DECIMAL(10,2),
+  department VARCHAR(50),
+  designation VARCHAR(50),
+  bonus DECIMAL(10,2) NULL,
+  hire_date DATE
+);
+
+INSERT INTO employee (eid, fname, lname, salary, department, designation, bonus, hire_date) VALUES
+(1, 'Amit', 'Sharma', 45000.00, 'Sales', 'Executive', 3000.00, '2020-01-15'),
+(2, 'Neha', 'Verma', 52000.00, 'HR', 'Manager', NULL, '2019-03-10'),
+(3, 'Ravi', 'Kumar', 39000.00, 'IT', 'Developer', 2000.00, '2021-06-20'),
+(4, 'Priya', 'Mehta', 47000.00, 'Finance', 'Analyst', NULL, '2020-07-12'),
+(5, 'Suresh', 'Nair', 55000.00, 'Sales', 'Manager', 5000.00, '2018-02-01'),
+(6, 'Anita', 'Joshi', 41000.00, 'IT', 'Tester', NULL, '2021-01-25'),
+(7, 'Karan', 'Reddy', 60000.00, 'Marketing', 'Lead', 4500.00, '2019-11-11'),
+(8, 'Divya', 'Gupta', 37000.00, 'HR', 'Executive', NULL, '2022-04-14'),
+(9, 'Rohit', 'Singh', 49000.00, 'Sales', 'Executive', 3500.00, '2020-09-09'),
+(10, 'Meena', 'Yadav', 42000.00, 'Finance', 'Clerk', NULL, '2021-05-05'),
+
+(11, 'Sunil', 'Bansal', 62000.00, 'IT', 'Architect', 8000.00, '2017-12-20'),
+(12, 'Pooja', 'Kapoor', 36000.00, 'HR', 'Clerk', NULL, '2023-01-01'),
+(13, 'Manish', 'Agarwal', 46000.00, 'Sales', 'Executive', NULL, '2021-03-17'),
+(14, 'Swati', 'Rao', 51000.00, 'IT', 'Developer', 2500.00, '2019-08-25'),
+(15, 'Arjun', 'Desai', 47000.00, 'Finance', 'Analyst', 4000.00, '2020-06-30'),
+(16, 'Nikita', 'Jain', 43000.00, 'Marketing', 'Executive', NULL, '2021-10-13'),
+(17, 'Vinay', 'Mishra', 39000.00, 'Sales', 'Executive', 1000.00, '2022-03-03'),
+(18, 'Sneha', 'Malhotra', 52000.00, 'HR', 'Manager', 3000.00, '2020-11-22'),
+(19, 'Raj', 'Thakur', 57000.00, 'IT', 'Team Lead', NULL, '2018-05-15'),
+(20, 'Rekha', 'Patel', 44000.00, 'Finance', 'Executive', NULL, '2022-02-07'),
+
+(21, 'Deepak', 'Kumar', 39000.00, 'Marketing', 'Executive', 2500.00, '2021-08-19'),
+(22, 'Lavanya', 'Saxena', 42000.00, 'HR', 'Analyst', NULL, '2022-06-06'),
+(23, 'Naveen', 'Chopra', 55000.00, 'IT', 'Developer', 3000.00, '2020-10-10'),
+(24, 'Isha', 'Bhatt', 47000.00, 'Finance', 'Clerk', NULL, '2021-07-07'),
+(25, 'Ankit', 'Kohli', 58000.00, 'Sales', 'Manager', 6000.00, '2019-12-12'),
+(26, 'Seema', 'Rana', 43000.00, 'Marketing', 'Executive', NULL, '2023-04-04'),
+(27, 'Rahul', 'Verma', 61000.00, 'IT', 'Architect', 7500.00, '2018-03-21'),
+(28, 'Kavita', 'Gill', 39000.00, 'HR', 'Clerk', NULL, '2023-02-02'),
+(29, 'Mohit', 'Dwivedi', 46000.00, 'Sales', 'Executive', 2800.00, '2020-08-08'),
+(30, 'Payal', 'Kashyap', 40000.00, 'Finance', 'Analyst', NULL, '2021-12-12'),
+
+(31, 'Umesh', 'Sahu', 37000.00, 'Sales', 'Clerk', 1000.00, '2021-09-09'),
+(32, 'Preeti', 'Deshmukh', 49000.00, 'IT', 'Developer', NULL, '2022-11-11'),
+(33, 'Ajay', 'Bhatia', 61000.00, 'HR', 'Manager', 4500.00, '2019-05-05'),
+(34, 'Jyoti', 'Rawat', 39000.00, 'Marketing', 'Analyst', NULL, '2020-10-01'),
+(35, 'Siddharth', 'Rana', 42000.00, 'Finance', 'Clerk', NULL, '2021-04-04'),
+(36, 'Kriti', 'Sen', 48000.00, 'IT', 'Tester', 2100.00, '2022-01-01'),
+(37, 'Gaurav', 'Mali', 59000.00, 'Sales', 'Lead', 5000.00, '2020-03-03'),
+(38, 'Tina', 'Roy', 43000.00, 'HR', 'Executive', NULL, '2021-06-06'),
+(39, 'Harsh', 'Chauhan', 57000.00, 'Marketing', 'Manager', 4000.00, '2019-07-07'),
+(40, 'Anshika', 'Meena', 41000.00, 'Finance', 'Executive', NULL, '2023-05-05'),
+
+(41, 'Kabir', 'Bajpai', 62000.00, 'IT', 'Lead', 7000.00, '2018-06-06'),
+(42, 'Sonal', 'Shetty', 35000.00, 'Sales', 'Clerk', NULL, '2023-06-06'),
+(43, 'Lokesh', 'Pillai', 47000.00, 'HR', 'Analyst', 2200.00, '2020-02-02'),
+(44, 'Maya', 'Pathak', 39000.00, 'Marketing', 'Executive', NULL, '2022-07-07'),
+(45, 'Dheeraj', 'Singla', 51000.00, 'Finance', 'Lead', 4500.00, '2019-09-09'),
+(46, 'Ritika', 'Pandey', 42000.00, 'Sales', 'Executive', NULL, '2021-08-08'),
+(47, 'Ramesh', 'Tiwari', 53000.00, 'IT', 'Architect', 6000.00, '2017-10-10'),
+(48, 'Snehal', 'Dixit', 40000.00, 'HR', 'Clerk', NULL, '2023-03-03'),
+(49, 'Zoya', 'Ali', 46000.00, 'Marketing', 'Analyst', NULL, '2021-02-02'),
+(50, 'Kishore', 'Jadhav', 58000.00, 'Finance', 'Manager', 5500.00, '2020-12-12');
+
+Arithmetic Operators:
+
+1. Write a query to display employee fname, lname and annual salary from employee? 
+ans: select fname, lname,12*salary as annual_salary from employee;
+
+
+2. Write a query to display all departments from employee table.
+
+select distinct department from employee;
+
+3. Write a query to display employee fname, lname and annual salary from employee department wise? 
+select fname, lname,12*salary as annual_salary from employee where department ='HR';
+select fname, lname,12*salary as annual_salary from employee where department ='IT';
+select fname, lname,12*salary as annual_salary from employee where department ='Sales';
+select fname, lname,12*salary as annual_salary from employee where department ='Finance';
+select fname, lname,12*salary as annual_salary from employee where department ='Marketing';
+
+4. Write a query to display employee fname, lname and salary incremented by 10000 for each employee department wise?
+select fname, lname,10000*salary as increment_salary from employee where department ='HR';
+select fname, lname,10000*salary as increment_salary from employee where department ='IT';
+select fname, lname,10000*salary as incerement_salary from employee where department ='Sales';
+select fname, lname,10000*salary as increment_salary from employee where department ='Finance';
+select fname, lname,10000*salary as increment_salary from employee where department ='Marketing';
+
+
+5. Write a query to display employee fname, lname and salary in thousands from employee department wise?
+select fname, lname,salary / 1000 as salary_in_k from employee;
+select fname, lname ,salary DIV 1000 as salary_in_k from employee;
+
+6. Write a query to display employee fname, lname and salary in LPA from employee department wise?
+select fname,lname, concat(((12*salary)/100000.00),'LPA') as CTC from employee;
+7. Write a query to display employee fname, lname and salary decremented by 1000 for each employee department wise?
+ select fname, lname,salary-1000 as decremented_salary from employee where department ='HR';
+
+
+Relational Operators:
+1. Write a query to display employees with salary exactly 30000.00.
+select fname,lname,salary from employee where salary !=40000.00;
+
+
+
+
+2. Write a query to display employees with salary not equals to 30000.00.
+
+
+3. Write a query to display employees with salary > 60000.00;
+select fname, lname,salary from  employee where salary>60000.00;
+
+
+4. Write a query to display employees with salary >= 60000.00; 
+select fname,lname,salary from employee where salary>=60000.00;
+
+
+5. Write a query to display employees with salary < 60000.00; 
+select fname,lname,salary from employee where salary <60000.00;
+
+
+6. Write a query to display employees with salary <= 60000.00; 
+select  fname,lname,salary from employee where salary <=60000.00;
+
+
+
+NULL Operators:
+1. Write a query to display employees whose bonus is null department wise.
+select fname,lname,bonus from employee where bonus is null;
+
+
+2. Write a query to display employees whose bonus is not null department wise.
+select fname,lname,bonus from employee where bonus is not null;
+
+Logical Operators:
+1. write a query to display employees whose salary is >40000 and < 50000.
+select fname,lname,salary from employee where salary>40000 && salary<50000;
+
+
+2. write a query to display employees whose salary is > 40000 and < 50000 department wise.
+
+select fname,lname,salary from employee where salary>40000 && salary<50000 AND department ='HR';
+3. Write query to display employees from IT, Sales, HR departments.
+select fname,lname department from employee where department ='HR'OR department ='IT' OR department='Sales';
+
+
+4. Write query to display employees from IT, Sales, HR departments using IN opertaor.
+select fname,lname department from employee where department IN('HR','IT','Sales');
+
+5. Write query to display employees not belongs to IT, Sales, HR departments.
+
+select fname,lname department from employee where department NOT IN('HR','IT','Sales');
+
+6. write a query to display employees whose salary is >= 40000 and <= 50000 department wise.
+select fname,lname,salary from employee where salary>=40000 AND salary<=50000;
+
+
+
+7. write a query to display employees whose salary is >= 40000 and <= 50000 department wise using BETWEEN operator.
+select fname,lname,salary from employee where salary BETWEEN 40000 AND 50000;
+
+
+String Operators:
+
+1. Write a query to display employee details whose names starts with J;
+
+select fname,lname from employee where fname LIKE 'J%';
+
+2. Write a query to display employee details whose names starts with A;
+select fname,lname from employee where fname LIKE'A%';
+
+3. Write a query to display employee details whose names starts with M;
+select fname,lname from employee where fname LIKE'M%';
+
+4. Write a query to display employee details whose names starts with Ma;
+select fname,lname from employee where fname LIKE'Ma%';
+
+5. Write a query to display employee details whose names ends with h;
+ select fname,lname from employee where fname like'%h';
+6. Write a query to display employee details whose names ends with i;
+select fname,lname from employee where fname LIKE'%i';
+
+7. Write a query to display employee details whose names ends with L;
+ SELECT fname,lname from employee where fname LIKE'%L';
+
+8. Write a query to display employee details whose names starts with Ma;
+
+9. Write a query to display employee details whose names contains with MA at any position;
+select fname,lname from employee where fname LIKE'%Ma%';
+
+10. Write a query to display employee details whose names contains AR;
+select fname,lname from employee where fname Like'%AR%';
+
+
+11. Write a query to display employee details whose names contains UN;
+select fname,lname from employee where fname LIKE'%UN%';
+
+12. Write a query to display employee fname, lname and salary in thousands from employee department wise?
+
+
+13. Write a query to display employee fname, lname and salary in LPA from employee department wise?
+
+Bitwise Operators
+
+1. Write a query to perform & operation on salary, bonus(bonus must not be null);
+select salary & bonus from employee where bonus is not null; 
+
+
+
+2. Write a query to perform | operation on salary, bonus(bonus must not be null);
+select salary | bonus from employee where bonus is not null;
+
+3. Write a query to perform ^ operation on salary, bonus(bonus must not be null);
+select salary^bonus from employee  where bonus is not null;
+
+
+4. Write a query to select eid and ~eid.
+ans: x=~(x+1);
+select eid, cast(~eid as signed) from employee;
+
+
+5. Write a query to shift eid by 2 shifts to the left; 
+left shift formula =10* 2 to the power of no of shifts
+select eid <<2 from employee;
+
+
+6. Write a query to shift eid by 2 shifts to the right; 
+select eid >>2 from employee;
+
+UNINON, UNINON ALL, INTERSECT, EXCEPT operators:
+
+CREATE DATABASE EmployeeDB;
+USE EmployeeDB;
+
+CREATE TABLE EmployeeUK
+(
+  EmployeeId INT PRIMARY KEY,
+  FirstName VARCHAR(50),
+  LastName VARCHAR(50),
+  Gender VARCHAR(10),
+  Department VARCHAR(20)
+);
+
+INSERT INTO EmployeeUK VALUES(1, 'Pranaya', 'Rout', 'Male','IT');
+INSERT INTO EmployeeUK VALUES(2, 'Priyanka', 'Dewangan', 'Female','IT');
+INSERT INTO EmployeeUK VALUES(3, 'Preety', 'Tiwary', 'Female','HR');
+INSERT INTO EmployeeUK VALUES(4, 'Subrat', 'Sahoo', 'Male','HR');
+INSERT INTO EmployeeUK VALUES(5, 'Anurag', 'Mohanty', 'Male','IT');
+INSERT INTO EmployeeUK VALUES(6, 'Rajesh', 'Pradhan', 'Male','HR');
+INSERT INTO EmployeeUK VALUES(7, 'Hina', 'Sharma', 'Female','IT');
+
+CREATE TABLE EmployeeUSA
+(
+  EmployeeId INT PRIMARY KEY,
+  FirstName VARCHAR(50),
+  LastName VARCHAR(50),
+  Gender VARCHAR(10),
+  Department VARCHAR(20)
+);
+
+INSERT INTO EmployeeUSA VALUES(1, 'James', 'Pattrick', 'Male','IT');
+INSERT INTO EmployeeUSA VALUES(2, 'Priyanka', 'Dewangan', 'Female','IT');
+INSERT INTO EmployeeUSA VALUES(3, 'Sara', 'Taylor', 'Female','HR');
+INSERT INTO EmployeeUSA VALUES(4, 'Subrat', 'Sahoo', 'Male','HR');
+INSERT INTO EmployeeUSA VALUES(5, 'Sushanta', 'Jena', 'Male','HR');
+INSERT INTO EmployeeUSA VALUES(6, 'Mahesh', 'Sindhey', 'Female','HR');
+INSERT INTO EmployeeUSA VALUES(7, 'Hina', 'Sharma', 'Female','IT');
+select * from employeeUK 
+UNION
+select * from employeeUSA;
+select * from employeeUK
+UNION ALL
+select  * from employeeUSA;
+select * from employeeUK
+INTERSECT
+select * from employeeUSA;
+select * from employeeUK
+EXCEPT
+select * from employeeUSA;
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

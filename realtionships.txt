@@ -1,0 +1,50 @@
+create database o2o;
+use o2o;
+create table  aadhar( aadhar_number varchar(12) primary key check(length(aadhar_number) =12),
+name varchar(100),
+address text);
+create table pan(
+pan_number varchar(10) primary key check(length(pan_number) =10),
+dob DATE not null,
+mobile varchar(10) not null check(length(mobile) =10),aadhar_number varchar(12) unique,foreign key(aadhar_number) references aadhar(aadhar_number));
+insert into aadhar values('209050906300','rcb anand','banglore,chinna swamy stadium, kohli street');
+insert into aadhar values(
+'209050907777', 'csk bashi','Chennai, chepak stadium, dhoni street');
+insert into aadhar values(
+'209050901818', 'rcb vignesh', 'banglore, peddaswami, lollypop street');
+insert into aadhar values(
+'209050909999', 'csk gowri', 'Chennai,chidambaram stadium,sambar street');
+insert into pan values('BXBXB5541T','2004/05/04', '9500950018', '209050906300');
+insert into pan values
+('cskcs5541d','2003/01/01', '9500950018', '209050907777');
+insert into  pan values('RCBVG541K', '2003/08/31', '9500950018', '209050901111');
+ERROR 3819 (HY000): Check constraint 'pan_chk_1' is violated.
+insert into pan values('CSKGW5541D', '2004/06/12', '9500950099', '209050901818');
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+MANY TO MANY:
+create table student(
+id int primary key,
+name varchar(100));
+create table course(
+id int primary key,
+name varchar(100));
+
+create TABLE  student_course(
+s_id int, c_id int, primary key (s_id, c_id),
+ foreign key(s_id) references student(id) ON DELETE CASCADE ON UPDATE CASCADE, foreign key(c_id) references course(id) ON DELETE CASCADE ON UPDATE CASCADE);
+insert into student values(111,'anand'),(222,'bashi'),(333,'bhargavi');
+insert into course values(1111,'Java'),(2222,'python'),(3333,'my sql');
+insert into student_course values(111,1111),(111, 2222), (111,3333),(222, 1111), (222,2222), (222, 3333),(333,1111),(333,2222),(333,3333);
+insert into student_course values(444,1111);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`o2o`.`student_course`, CONSTRAINT `student_course_ibfk_1` FOREIGN KEY (`s_id`) REFERENCES `student` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+insert into student_course values(333,4444);
+mysql> insert into student_course values(333,4444);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`o2o`.`student_course`, CONSTRAINT `student_course_ibfk_2` FOREIGN KEY (`c_id`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+delete from student where id= 333;
+delete from course where id =2222;
+
+
+
+
+

@@ -1,0 +1,323 @@
+Jeevan Raksha:
+Store Name: Jeevan Raksha Pharmacy
+Location: India
+Business Logic:
+• Customers: Local residents purchasing medicines.
+• Suppliers: Distributors providing stock to the pharmacy.
+• Medicines: The inventory (Tablets, Syrups, etc.) with expiry dates.
+• Bills (Orders): The transaction record containing total amount and payment mode (UPI,
+Cash, Card).
+• Order Items: The breakdown of which medicines are included in a specific bill.
+
+Database Setup Script:
+CREATE DATABASE IF NOT EXISTS jeevan_raksha_pharmacy;
+
+USE jeevan_raksha_pharmacy;
+
+CREATE TABLE customers (
+customer_id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100),
+phone VARCHAR(15),
+city VARCHAR(50)
+);
+
+
+CREATE TABLE suppliers (
+supplier_id INT AUTO_INCREMENT PRIMARY KEY,
+supplier_name VARCHAR(100),
+contact_person VARCHAR(100),
+phone VARCHAR(15)
+);
+
+
+CREATE TABLE medicines (
+medicine_id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100),
+category VARCHAR(50),
+price DECIMAL(10,2),
+stock_quantity INT,
+expiry_date DATE,
+supplier_id INT,
+FOREIGN KEY (supplier_id) REFERENCES
+suppliers(supplier_id)
+);
+
+
+CREATE TABLE orders (
+order_id INT AUTO_INCREMENT PRIMARY KEY,
+customer_id INT,
+order_date DATE,
+total_amount DECIMAL(10,2),
+payment_mode ENUM('UPI', 'Cash', 'Card'),
+FOREIGN KEY (customer_id) REFERENCES
+customers(customer_id)
+);
+
+CREATE TABLE order_items (
+item_id INT AUTO_INCREMENT PRIMARY KEY,
+order_id INT,
+medicine_id INT,
+quantity INT,
+subtotal DECIMAL(10,2),
+FOREIGN KEY (order_id) REFERENCES orders(order_id),
+FOREIGN KEY (medicine_id) REFERENCES
+medicines(medicine_id)
+);
+
+Insert Data : 
+-- Customers
+INSERT INTO customers (name, phone, city) VALUES
+('Rahul Sharma', '9876543210', 'Mumbai'),
+('Priya Verma', '9123456789', 'Delhi'),
+('Amit Patel', '9988776655', 'Ahmedabad'),
+('Sneha Reddy', '8877665544', 'Hyderabad'),
+('Vikram Singh', '7766554433', 'Mumbai'),
+
+('Anjali Mehta', '9012345678', 'Pune'),
+('Rohit Kumar', '9090909090', 'Bangalore'),
+('Kavya Nair', '9345678901', 'Kochi'),
+('Arjun Das', '9234567890', 'Kolkata'),
+('Neha Gupta', '9112233445', 'Delhi'),
+
+('Suresh Yadav', '9223344556', 'Lucknow'),
+('Pooja Singh', '9334455667', 'Patna'),
+('Kiran Rao', '9445566778', 'Hyderabad'),
+('Manish Jain', '9556677889', 'Jaipur'),
+('Divya Iyer', '9667788990', 'Chennai'),
+
+('Nitin Agarwal', '9778899001', 'Kanpur'),
+('Swati Kulkarni', '9889900112', 'Pune'),
+('Deepak Mishra', '9990011223', 'Varanasi'),
+('Meera Pillai', '9001122334', 'Trivandrum'),
+('Rakesh Gupta', '9112233446', 'Delhi'),
+
+('Sunita Devi', '9223344557', 'Ranchi'),
+('Ashok Verma', '9334455668', 'Bhopal'),
+('Harish Kumar', '9445566779', 'Chandigarh'),
+('Lakshmi Devi', '9556677890', 'Madurai'),
+('Pradeep Singh', '9667788901', 'Indore'),
+
+('Anil Kapoor', '9778899012', 'Mumbai'),
+('Geeta Sharma', '9889900123', 'Delhi'),
+('Vivek Reddy', '9990011234', 'Hyderabad'),
+('Farhan Ali', '9001122445', 'Lucknow'),
+('Jyoti Gupta', '9112233556', 'Noida');
+
+
+-- Suppliers
+INSERT INTO suppliers (supplier_name, contact_person, phone)
+VALUES
+('Apollo Distributors', 'Rajesh Gupta', '022-123456'),
+('MedPlus Supply Chain', 'Suresh Nair', '040-987654'),
+('Himalaya Wellness', 'Anjali Mehta', '011-456789'),
+
+('Sun Pharma Distributors', 'Vikram Singh', '022-223344'),
+('Cipla Logistics', 'Neha Sharma', '020-334455'),
+('Dr Reddy Supply', 'Kiran Reddy', '040-556677'),
+('Zydus Healthcare', 'Amit Patel', '079-667788'),
+('Biocon Suppliers', 'Priya Nair', '080-778899'),
+
+('Lupin Distributors', 'Rohit Kumar', '022-889900'),
+('Aurobindo Pharma Supply', 'Sneha Reddy', '040-990011'),
+('Torrent Pharma Chain', 'Manish Jain', '079-101112'),
+('Alkem Distributors', 'Pooja Verma', '022-121314'),
+
+('Glenmark Supply', 'Arjun Das', '022-141516'),
+('Mankind Pharma Distributors', 'Deepak Mishra', '011-161718'),
+('Intas Pharma Supply', 'Swati Kulkarni', '079-181920');
+
+
+-- Medicines
+INSERT INTO medicines (name, category, price, stock_quantity, expiry_date, supplier_id) VALUES
+('Dolo 650', 'Tablet', 30.00, 500, '2025-12-31', 1),
+('Azithral 500', 'Tablet', 120.00, 50, '2024-05-20', 1),
+('Benadryl', 'Syrup', 110.00, 20, '2024-11-15', 2),
+('Combiflam', 'Tablet', 45.00, 200, '2026-01-01', 3),
+('Insulin Pen', 'Injection', 800.00, 5, '2024-03-10', 2),
+
+('Paracetamol 500', 'Tablet', 25.00, 300, '2025-10-10', 1),
+('Crocin', 'Tablet', 35.00, 400, '2025-08-15', 1),
+('Amoxicillin', 'Capsule', 90.00, 150, '2024-09-25', 2),
+('Cetrizine', 'Tablet', 20.00, 350, '2026-02-20', 3),
+('ORS Sachet', 'Powder', 15.00, 600, '2025-07-30', 2),
+
+('Vicks Syrup', 'Syrup', 95.00, 80, '2024-12-12', 3),
+('Metformin', 'Tablet', 60.00, 200, '2025-11-11', 1),
+('Glucon-D', 'Powder', 70.00, 180, '2025-09-09', 2),
+('Pantoprazole', 'Tablet', 85.00, 120, '2026-03-01', 3),
+('Rantac', 'Tablet', 40.00, 220, '2025-06-18', 1),
+
+('Ibuprofen', 'Tablet', 50.00, 250, '2025-05-05', 2),
+('Digene', 'Syrup', 75.00, 140, '2024-10-10', 3),
+('Ascoril', 'Syrup', 105.00, 90, '2024-11-20', 2),
+('Vitamin C', 'Tablet', 55.00, 300, '2026-04-04', 1),
+('Zinc Tablets', 'Tablet', 65.00, 270, '2025-08-08', 3),
+
+('Calcium Sandoz', 'Tablet', 120.00, 110, '2026-06-06', 2),
+('B-Complex', 'Capsule', 45.00, 320, '2025-03-03', 1),
+('Eno', 'Powder', 10.00, 500, '2025-12-01', 3),
+('Betadine', 'Liquid', 150.00, 70, '2026-01-20', 2),
+('Liv 52', 'Syrup', 130.00, 60, '2025-09-19', 3),
+
+('Dexamethasone', 'Injection', 200.00, 40, '2024-07-07', 1),
+('Hydrocortisone', 'Injection', 220.00, 30, '2024-08-08', 2),
+('Atorvastatin', 'Tablet', 95.00, 210, '2025-11-25', 3),
+('Losartan', 'Tablet', 85.00, 190, '2026-02-14', 1),
+('Aspirin', 'Tablet', 20.00, 330, '2025-07-21', 2),
+
+('Clopidogrel', 'Tablet', 110.00, 140, '2025-10-30', 3),
+('Montelukast', 'Tablet', 75.00, 180, '2026-01-15', 1),
+('Salbutamol', 'Inhaler', 250.00, 60, '2025-06-06', 2),
+('Insulin Vial', 'Injection', 900.00, 25, '2024-12-31', 3),
+('Thyroxine', 'Tablet', 65.00, 160, '2025-04-18', 1),
+
+('Azithromycin Syrup', 'Syrup', 140.00, 50, '2024-09-09', 2),
+('Diclofenac', 'Tablet', 55.00, 240, '2025-08-22', 3),
+('Naproxen', 'Tablet', 70.00, 180, '2026-03-03', 1),
+('Rabeprazole', 'Tablet', 90.00, 130, '2025-12-12', 2),
+('Domperidone', 'Tablet', 60.00, 170, '2025-05-25', 3),
+
+('Loperamide', 'Capsule', 35.00, 200, '2026-01-01', 1),
+('ORS Liquid', 'Liquid', 25.00, 300, '2025-07-07', 2),
+('Cetirizine Syrup', 'Syrup', 80.00, 100, '2024-10-10', 3),
+('Iron Tablets', 'Tablet', 50.00, 220, '2026-02-02', 1),
+('Folic Acid', 'Tablet', 40.00, 260, '2025-09-09', 2);
+
+
+--Orders
+INSERT INTO orders (customer_id, order_date, total_amount, payment_mode) VALUES
+(1, '2023-10-01', 150.00, 'UPI'),
+(2, '2023-10-02', 240.00, 'Card'),
+(3, '2023-10-05', 45.00, 'Cash'),
+(1, '2023-10-10', 800.00, 'UPI'),
+(4, '2023-10-12', 1200.00, 'Card'),
+
+(5, '2023-10-13', 300.00, 'Cash'),
+(6, '2023-10-14', 450.00, 'UPI'),
+(7, '2023-10-15', 220.00, 'Card'),
+(8, '2023-10-16', 175.00, 'UPI'),
+(9, '2023-10-17', 600.00, 'Card'),
+
+(10, '2023-10-18', 90.00, 'Cash'),
+(2, '2023-10-19', 350.00, 'UPI'),
+(3, '2023-10-20', 120.00, 'Card'),
+(4, '2023-10-21', 780.00, 'UPI'),
+(5, '2023-10-22', 560.00, 'Card'),
+
+(6, '2023-10-23', 410.00, 'Cash'),
+(7, '2023-10-24', 275.00, 'UPI'),
+(8, '2023-10-25', 640.00, 'Card'),
+(9, '2023-10-26', 150.00, 'Cash'),
+(10, '2023-10-27', 720.00, 'UPI'),
+
+(1, '2023-10-28', 510.00, 'Card'),
+(2, '2023-10-29', 330.00, 'Cash'),
+(3, '2023-10-30', 210.00, 'UPI'),
+(4, '2023-10-31', 890.00, 'Card'),
+(5, '2023-11-01', 460.00, 'UPI'),
+
+(6, '2023-11-02', 380.00, 'Card'),
+(7, '2023-11-03', 140.00, 'Cash'),
+(8, '2023-11-04', 670.00, 'UPI'),
+(9, '2023-11-05', 250.00, 'Card'),
+(10, '2023-11-06', 990.00, 'UPI');
+
+-- Order Items
+INSERT INTO order_items (order_id, medicine_id, quantity, subtotal) VALUES
+(1, 1, 5, 150.00),
+(2, 2, 2, 240.00),
+(3, 4, 1, 45.00),
+(4, 5, 1, 800.00),
+(5, 5, 1, 800.00),
+(5, 2, 2, 240.00),
+(5, 1, 5, 150.00),
+
+(6, 3, 2, 220.00),
+(7, 6, 3, 75.00),
+(8, 7, 4, 140.00),
+(9, 8, 2, 180.00),
+(10, 9, 5, 100.00),
+
+(11, 10, 3, 45.00),
+(12, 11, 2, 190.00),
+(13, 12, 1, 60.00),
+(14, 13, 2, 140.00),
+(15, 14, 3, 255.00),
+
+(16, 15, 2, 80.00),
+(17, 16, 4, 200.00),
+(18, 17, 1, 75.00),
+(19, 18, 2, 210.00),
+(20, 19, 3, 165.00),
+
+(21, 20, 2, 130.00),
+(22, 21, 1, 120.00),
+(23, 22, 3, 135.00),
+(24, 23, 4, 40.00),
+(25, 24, 1, 150.00),
+
+(26, 25, 2, 260.00),
+(27, 26, 1, 200.00),
+(28, 27, 3, 285.00),
+(29, 28, 2, 190.00);
+
+Level 1: Simple Queries
+1. Customer List: Retrieve the name and city of all customers.
+Answer : select name,city from customers;
+
+2. Stock Check: Find the names of medicines that are 'Syrup' or 'Injection'.
+Answer :  select * from medicines where category in('syrup', 'injection');
+select name from medicines where category in('syrup', 'injection');
+
+3. High Value Bills: List all orders where the total_amount is greater than ₹500.
+Answer : select * from orders where total_amount >500;
+
+4. Mumbai Residents: Find the phone numbers of all customers living in 'Mumbai'.
+Answer : select name,phone from customers where city ='mumbai';
+
+
+Level 2: Intermediate Queries (Aggregates & Joins)
+5. Payment Analysis: How many orders were paid using 'UPI'?
+Answer : select count(*) from orders where payment_mode ='upi';
+
+6. Payment Analysis: Count the number of orders placed for each payment mode.
+Answer : select payment_mode,count(*) as payment from orders group by payment_mode;
+
+7. Supplier Count: Count how many medicines are supplied by 'Apollo Distributors' (Use
+Subquery or Join).
+Answer : 
+select count(*) from medicines where supplier_id =(Select supplier_id from suppliers where supplier_name ='apollo distributors');
+
+
+
+8. Order Details: List the Customer Name, Order Date, and Total Amount for every order
+placed.
+Answer : select c.name , o.order_date, o.total_amount from customers as c join orders as o on c.customer_id =o.customer_id;
+
+9. Revenue by Mode: Calculate the total money earned through each payment mode (UPI,
+Card, Cash).
+Answer :  select payment_mode , sum(total_amount)  from orders group by payment_mode;
+
+10.Display the number of medicines available in each category.
+Answer : select category , sum(stock_quantity) from medicines group by category;
+
+11. Display the number of orders made using each payment mode.
+Answer : select payment_mode, count(payment_mode) from orders group by payment_mode;
+select payment_mode, count(order_id) from orders group by payment_mode;
+
+
+Level 3: Complex Queries
+12. Best Selling Medicine: Which medicine has been sold the most (in terms of total quantity)?
+Answer: select m.medicine_id , m.name , sum(oi.quantity) as sold_quantity from medicines m join order_items oi on m.medicine_id =oi.medicine_id group by m.medicine_id,m.name order by sold_quantity desc limit 1;
+
+13. Customer Lifetime Value: List the names of customers who have spent more than ₹1000 in total across all their orders.
+Answer : select c.name ,sum(o.total_amount) as amount_spend from customers c join orders o on c.customer_id =o.customer_id group by c.name having amount_spend >1000;
+
+
+14. Inventory Audit: List the medicine_name, stock_quantity, and supplier_name for medicines that have less than 50 units left in stock.
+
+select m.name, m.stock_quantity ,s.supplier_name from medicines m join  suppliers s on m.supplier_id =s.supplier_id where m.stock_quantity <50;
+
+
+
+
